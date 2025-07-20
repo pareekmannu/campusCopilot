@@ -1,29 +1,54 @@
 {
   "expo": {
-    "name": "CampusCopilot",
-    "slug": "CampusCopilot",
+    "name": "Campus Copilot",
+    "slug": "campus-copilet",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
-    "newArchEnabled": true,
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.campuscopilot.app",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#FFFFFF"
       },
-      "edgeToEdgeEnabled": true
+      "package": "com.campuscopilot.app",
+      "permissions": [
+        "android.permission.READ_CALENDAR",
+        "android.permission.WRITE_CALENDAR"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      "expo-calendar",
+      "expo-notifications"
+    ],
+    "permissions": [
+      "CALENDAR",
+      "NOTIFICATIONS",
+      "CAMERA_ROLL"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "8e491576-9543-41a8-9b6c-c90f60def9f9"
+      }
+    },
+    "owner": "mannu_pareek"
   }
 }

@@ -1,0 +1,30 @@
+name: Expo Auto-Publish
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install EAS CLI
+        run: npm install -g eas-cli
+
+      - name: Publish to Expo
+        run: eas update --branch production --message "Auto-deploy from GitHub"
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
